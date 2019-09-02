@@ -22,7 +22,7 @@
     <meta name="description" content="My blog">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Living in the Shadows</title>
+    <title>HashMap的学习 · Living in the Shadows</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Trust the Process.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">HashMap的学习</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Trust the Process.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            HashMap的学习
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "code">code</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.7k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/09/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,39 +399,66 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/hello-world/" >
-            
-                <span>Hello World</span>
-        </a>
-        <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
+            <main class="main post-page">
+    <article class="article-entry">
+        <h4 id="阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。"><a href="#阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。" class="headerlink" title="阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。"></a>阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。</h4><p>概括的说，<code>HashMap</code> 是一个关联数组、哈希表，它是<code>线程不安全</code>的，允许<code>key</code>为<code>null</code>,<code>value</code>为<code>null</code>。<code>遍历时无序</code>。<br>其底层数据结构是数组称之为哈希桶，每个桶里面放的是链表，链表中的每个节点，就是哈希表中的每个元素。<br>在JDK8中，当链表长度达到8，会转化成红黑树，以提升它的查询、插入效率，它实现了<code>Map&lt;K,V&gt;</code>, <code>Cloneable</code>, <code>Serializable</code>接口。</p>
+<p>因其底层哈希桶的数据结构是数组，所以也会涉及到<strong>扩容</strong>的问题。</p>
+<p>当HashMap的容量达到threshold域值时，就会触发扩容。扩容前后，<strong>哈希桶的长度一定会是2的次方</strong>。<br>这样在根据key的hash值寻找对应的哈希桶时，可以<strong>用位运算替代取余</strong>操作，更加高效。</p>
+<p>而key的hash值并不仅仅只是<code>key</code>对象的<code>hashCode()</code>方法的返回值，还会经过<code>扰动函数</code>的扰动，以使hash值更加均衡。 </p>
+<p>因为<code>hashCode()</code>是<code>int</code>类型，取值范围是40多亿，只要哈希函数映射的比较均匀松散，碰撞几率是很小的。 </p>
+<p>但就算原本的<code>hashCode()</code>取得很好，每个<code>key</code>的<code>hashCode()</code>不同，但是由于HashMap的<strong>哈希桶的长度远比hash取值范围小</strong>，默认是16，所以当对hash值以桶的长度取余，以找到存放该key的桶的下标时，由于取余是通过与操作完成的，<strong>会忽略hash值的高位</strong>。因此只有<code>hashCode()</code>的低位参加运算，发生不同的hash值，但是得到的index相同的情况的几率会大大增加，这种情况称之为hash碰撞。 即，碰撞率会增大。</p>
+<p>扰动函数就是为了解决hash碰撞的。它会综合hash值高位和低位的特征，并存放在低位，因此在与运算时，相当于高低位一起参与了运算，以减少hash碰撞的概率。（在JDK8之前，扰动函数会扰动四次，JDK8简化了这个操作）</p>
+<p>扩容操作时，会new一个新的Node数组作为哈希桶，然后将原哈希表中的所有数据(Node节点)移动到新的哈希桶中，相当于对原哈希表中所有的数据重新做了一个put操作。所以性能消耗很大，可想而知，在哈希表的容量越大时，性能消耗越明显。</p>
+<p>扩容时，如果发生过哈希碰撞，节点数小于8个。则要根据<strong>链表</strong>上每个节点的哈希值，依次放入新哈希桶对应下标位置。 </p>
+<p>因为扩容是容量翻倍，所以原链表上的每个节点，现在可能存放在原来的下标，即low位， 或者扩容后的下标，即high位。 high位= low位+原哈希桶容量<br>如果追加节点后，链表数量》=8，则转化为红黑树</p>
+<p>由迭代器的实现可以看出，遍历HashMap时，<strong>顺序是按照哈希桶从低到高，链表从前往后，依次遍历的。属于无序集合。</strong><a href="https://blog.csdn.net/zxt0601/article/details/77413921" target="_blank" rel="noopener">原文链接</a></p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>运算尽量都用<code>位运算</code>代替，更高效。 </li>
+<li>对于扩容导致需要新建数组存放更多元素时，除了要将老数组中的元素迁移过来，也记得将老数组中的引用置null，以便<code>GC</code></li>
+<li>取下标 是用 哈希值 与运算 （桶的长度-1） <code>i = (n - 1) &amp; hash</code>。 由于桶的长度是2的n次方，这么做其实是等于 一个模运算。但是效率更高 </li>
+<li>扩容时，如果发生过<code>哈希碰撞</code>，节点数小于8个。则要根据链表上每个节点的哈希值，依次放入新哈希桶对应下标位置。 </li>
+<li>因为扩容是容量翻倍，所以原链表上的每个节点，现在可能存放在原来的下标，即low位， 或者扩容后的下标，即high位。 <code>high位= low位+原哈希桶容量</code> </li>
+<li>利用哈希值 与运算 旧的容量 ，<code>if ((e.hash &amp; oldCap) == 0)</code>,可以得到哈希值去模后，是大于等于oldCap还是小于oldCap，等于0代表小于oldCap，应该存放在低位，否则存放在高位。这里又是一个利用位运算 代替常规运算的高效点 </li>
+<li>如果追加节点后，链表数量》=8，则转化为<code>红黑树</code> </li>
+<li>插入节点操作时，有一些空实现的函数，用作LinkedHashMap重写使用。</li>
+<li>关于<code>扰动函数</code>: 因为hashCode()是int类型，取值范围是40多亿，只要哈希函数映射的比较均匀松散，碰撞几率是很小的。 但就算原本的hashCode()取得很好，每个key的hashCode()不同，但是由于<code>HashMap的哈希桶的长度远比hash取值范围小</code>，默认是16，所以当对hash值以桶的长度取余，以找到存放该key的桶的下标时，由于取余是通过与操作完成的，<code>会忽略hash值的高位</code>。因此只有hashCode()的低位参加运算，发生不同的hash值，但是得到的index相同的情况的几率会大大增加，这种情况称之为<code>hash碰撞</code>。 即，碰撞率会增大。<br><code>(h = key.hashCode()) ^ (h &gt;&gt;&gt; 16)</code> 得到的hashcode与它右移16位的结果做异或运算。右位移16位，正好是32bit的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性。而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来。再进行h &amp; (length - 1)相当于取模得到最后的index。<br><a href="https://www.cnblogs.com/lycroseup/p/7344321.html" target="_blank" rel="noopener">HASHMAP之扰动函数和低位掩码</a></li>
+</ul>
+<blockquote>
+<p><strong>HashMap与HashTable的区别</strong></p>
+</blockquote>
+<p>与之相比HashTable是线程安全的，且不允许key、value是null。<br>HashTable默认容量是11。<br>HashTable是直接使用key的hashCode(key.hashCode())作为hash值，不像HashMap内部使用static final int hash(Object key)扰动函数对key的hashCode进行扰动后作为hash值。<br>HashTable取哈希桶下标是直接用模运算%.（因为其默认容量也不是2的n次方。所以也无法用位运算替代模运算）<br>扩容时，新容量是原来的2倍+1。int newCapacity = (oldCapacity &lt;&lt; 1) + 1;<br>Hashtable是Dictionary的子类同时也实现了Map接口，HashMap是Map接口的一个实现类；</p>
 
-More info: Writing
-Run server1$ hexo server
-
-Mo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/09/02/hello-world/" title= "Hello World">
+                    <div class="prevTitle">Hello World</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -455,6 +543,24 @@ Mo...
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。"><span class="toc-number">1.</span> <span class="toc-text">阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小结"><span class="toc-number"></span> <span class="toc-text">小结</span></a>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -640,6 +746,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>

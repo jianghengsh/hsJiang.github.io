@@ -346,18 +346,12 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/hello-world/" >
+        <a class="abstract-title" href = "/2019/09/02/20190902-Java-集合类-HashMap/" >
             
-                <span>Hello World</span>
+                <span>HashMap的学习</span>
         </a>
         <div class="abstract-content">
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-
-More info: Writing
-Run server1$ hexo server
-
-Mo...
+            阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。概括的说，HashMap 是一个关联数组、哈希表，它是线程不安全的，允许key为null,value为null。遍历时无序。其底层数据结构是数组称之为哈希桶，每个桶里面放的是链表，链表中的每个节点，就是哈希表中的每个元素。在JDK8中，当链表长度达到8，会转化成红黑树，以提升它的查询、插入效率，它实现了Map&lt;K,V&gt;, ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -365,6 +359,12 @@ Mo...
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "code">code</a>
+    
+</div>
             
         </div>
     </article>
