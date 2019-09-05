@@ -346,15 +346,21 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/第一篇markdown/" >
+        <a class="abstract-title" href = "/2019/09/02/20190904-数据库-面试题/" >
             
-                <span>我的第一篇文章</span>
+                <span>数据库面试题</span>
         </a>
         <div class="abstract-content">
-            这是我发布的第一篇博客,希望以后能坚持下去鸭.
-湖人总冠军今天把&lt;&lt;剑指offer&gt;&gt; 66个题刷完一遍ConcurrentHashMap还没有看一篇蚂蚁金服的经验贴还没有看完消息队列也没有看transient也只是看了给皮毛  不能序列化?ArrayList   动态扩容机制 看了源码 
-Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安全的，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException
-集合类为什么不直接实现Iterator...
+            
+1、为什么一定要设一个主键?
+
+因为你不设主键的情况下，innodb也会帮你生成一个隐藏列，作为自增主键。所以啦，反正都要生成一个主键，那你还不如自己指定一个主键，在有些情况下，就能显式的用上主键索引，提高查询效率！
+
+
+
+2、你们主键是用自增还是UUID?    使用UUID作为主键最大的问题是大表性能问题和索引较大问题
+
+innodb 中的主键是聚簇索引，会把相邻主键的数据安放在相邻的物理存储上。如果主键不是自增，而是随机的，那么频繁的插入会使 innodb 频繁地移动磁盘块，而影响写入性能。1 uuid是无序的， 插入数据时，页的位置会发生变化，页分裂，速度慢。2 uuid占的空...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -365,9 +371,7 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Life">Life</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Test">Test</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
     
 </div>
             

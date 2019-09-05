@@ -22,7 +22,7 @@
     <meta name="description" content="My blog">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Living in the Shadows</title>
+    <title>数据库面试题 · Living in the Shadows</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >Trust the Process.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">数据库面试题</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>Trust the Process.</a>
 </header>
@@ -220,24 +231,74 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            数据库面试题
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1.6k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/09/02</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,44 +399,125 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/第一篇markdown/" >
-            
-                <span>我的第一篇文章</span>
-        </a>
-        <div class="abstract-content">
-            这是我发布的第一篇博客,希望以后能坚持下去鸭.
-湖人总冠军今天把&lt;&lt;剑指offer&gt;&gt; 66个题刷完一遍ConcurrentHashMap还没有看一篇蚂蚁金服的经验贴还没有看完消息队列也没有看transient也只是看了给皮毛  不能序列化?ArrayList   动态扩容机制 看了源码 
-Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安全的，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException
-集合类为什么不直接实现Iterator...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Life">Life</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "Test">Test</a>
-    
-</div>
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <blockquote>
+<p><strong>1、为什么一定要设一个主键?</strong></p>
+<blockquote>
+<p>因为你不设主键的情况下，innodb也会帮你生成一个隐藏列，作为自增主键。所以啦，反正都要生成一个主键，那你还不如自己指定一个主键，在有些情况下，就能显式的用上主键索引，提高查询效率！</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>2、你们主键是用自增还是UUID?</strong><br>    使用UUID作为主键最大的问题是大表性能问题和索引较大问题</p>
+<blockquote>
+<p>innodb 中的主键是<code>聚簇索引</code>，会把相邻主键的数据安放在相邻的物理存储上。如果主键不是自增，而是随机的，那么频繁的插入会使 innodb 频繁地移动磁盘块，而影响写入性能。<br>1 uuid是无序的， 插入数据时，页的位置会发生变化，<code>页分裂</code>，速度慢。<br>2 uuid占的空间大，并且innodb中，别的索引还都要包含主键的值，那么每个索引的空间也都会增大，<code>占的空间大</code>，需要读数据时一般会认为需要的io次数多。<br>3 讲个不是性能方面的，如果是自增的，爬虫拿到 api, 一个 for 循环就可以把数据全部拿到了，uuid 会相对费劲些<br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMDgzMjc3NA==&mid=2247484464&idx=1&sn=f783fc5f7fe3d7714247c3c21d0a93f6&chksm=96f66659a181ef4fa02303b4974031b3f40bc1bdd76bad31a60fbaa54f2e63e62fcede88e4cd&token=1510096404&lang=zh_CN#rd" target="_blank" rel="noopener">自增主键用完该怎么办？</a><br><a href="https://mp.weixin.qq.com/s?__biz=MzIwMDgzMjc3NA==&mid=2247483939&idx=1&sn=7abbf7865b705057ae56a1ba797f6d79&chksm=96f6604aa181e95c47f6d1534bf3695f567ddbc5f39749f9d4644266e4a7ce51fc4e779908fd&scene=21#wechat_redirect" target="_blank" rel="noopener">分库分表后如何部署上线</a><br><strong>3、主键为什么不推荐有业务含义?</strong><br>(1)因为<code>任何有业务含义的列都有改变的可能性</code>,主键一旦带上了业务含义，那么主键就有可能发生变更。主键一旦发生变更，该<code>数据在磁盘上的存储位置就会发生变更</code>，有可能会<code>引发页分裂</code>，<code>产生空间碎片</code>。<br>(2)带有业务含义的主键，不一定是顺序自增的。那么就会导致数据的插入顺序，并不能保证后面插入数据的主键一定比前面的数据大。如果出现了，后面插入数据的主键比前面的小，就有可能引发页分裂，产生空间碎片。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>4、表示枚举的字段为什么不用enum类型？</strong><br>在工作中表示枚举的字段，一般用tinyint类型。那为什么不用enum类型呢？下面两个原因:</p>
+<blockquote>
+<p>(1)ENUM类型的ORDER BY操作效率低，需要额外操作<br>(2)如果枚举值是数值，有陷阱 举个例子，表结构如下</p>
+<blockquote>
+<blockquote>
+<p><code>CREATE TABLE test (foobar ENUM(&#39;0&#39;, &#39;1&#39;, &#39;2&#39;));</code><br>此时，你执行语句:<br><code>mysql&gt; INSERT INTO test VALUES (1);</code><br>查询出的结果是 <code>0</code><br>就产生了一个坑爹的结果。 插入语句应该像下面这么写，插入的才是1<br><code>mysql&gt; INSERT INTO test VALUES (&#39;1&#39;);</code></p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>5、货币字段用什么类型?</strong></p>
+<blockquote>
+<p>如果货币单位是分，可以用<code>Int</code>类型。如果坚持用元，用<code>Decimal</code>。<br>千万不要答float和double，因为float和double是以二进制存储的，所以有一定的误差精度失准！。 </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>6、<strong>时间字段用什么类型?</strong> </p>
+<blockquote>
+<p>(1)<code>varchar</code>，如果用varchar类型来存时间，优点在于显示直观。但是坑的地方也是挺多的。比如，插入的数据没有校验，你可能某天就发现一条数据为2013111的数据，请问这是代表2013年1月11日，还是2013年11月1日？ 其次，做时间比较运算，你需要用<code>STR_TO_DATE</code>等函数将其转化为时间类型，你会发现这么写是无法命中索引的。数据量一大，是个坑！</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>(2)<code>timestamp</code>，该类型是四个字节的整数，它能表示的时间范围为1970-01-01 08:00:01到2038-01-19 11:14:07。2038年以后的时间，是无法用timestamp类型存储的。 但是它有一个优势，timestamp类型是带有时区信息的。一旦你系统中的时区发生改变，例如你修改了时区<code>SET TIME_ZONE = &quot;america/new_york&quot;;</code>你会发现，项目中的该字段的值自己会发生变更。这个特性用来做一些国际化大项目，跨时区的应用时，特别注意！</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>(3)<code>datetime</code>，<code>datetime</code>储存占用8个字节，它存储的时间范围为1000-01-01 00:00:00 ~ 9999-12-31 23:59:59。显然，存储时间范围更大。但是它坑的地方在于，他存储的是时间绝对值，不带有时区信息。如果你改变数据库的时区，该项的值不会自己发生变更！</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>(4)<code>bigint</code>，也是8个字节，自己维护一个时间戳，表示范围比<code>timestamp</code>大多了，就是要自己维护，不大方便。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>7、为什么不直接存储图片、音频、视频等大容量内容?</strong><br>我们在实际应用中，都是用HDFS来存储文件。然后mysql中，只存文件的存放路径。mysql中有两个字段类型被用来设计存放大容量文件，也就是text和blob类型。但是，我们在生产中，基本不用这两个类型！ 主要原因有如下两点 </p>
+<blockquote>
+<p>(1)Mysql内存临时表不支持TEXT、BLOB这样的大数据类型，如果查询中包含这样的数据，在排序等操作时，就不能使用内存临时表，必须使用磁盘临时表进行。导致查询效率缓慢</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>(2)binlog内容太多。因为你数据内容比较大，就会造成binlog内容比较多。大家也知道，主从同步是靠binlog进行同步，binlog太大了，就会导致主从同步效率问题！因此，不推荐使用text和blob类型！</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p><strong>8、字段为什么要定义为NOT NULL?</strong></p>
+<blockquote>
+<p>(1)索引性能不好Mysql难以优化引用可空列查询，它会使索引、索引统计和值更加复杂。可空列需要更多的存储空间，还需要mysql内部进行特殊处理。可空列被索引后，每条记录都需要一个额外的字节，还能导致MYisam 中固定大小的索引变成可变大小的索引。                                                              —— 出自《高性能mysql第二版》</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>查询会出现一些不可预料的结果 这里举一个例子</p>
+<blockquote>
+<p>create table table_2 (<br>     <code>id</code> INT (11) NOT NULL,<br>    name varchar(20) NOT NULL<br>)<br>你执行语句<br>select count(name) from table_2;</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>你会发现结果为2，但是实际上是有四条数据的！<br>因为null列的存在，会出现很多出人意料的结果，从而浪费开发时间去排查Bug.</p>
+</blockquote>
+</blockquote>
+
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" title= "蚂蚁金服面试题(无答案)">
+                    <div class="nextTitle">蚂蚁金服面试题(无答案)</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2019/09/02/健身日记/" title= "健身日记">
+                    <div class="prevTitle">健身日记</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -460,6 +602,24 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -663,6 +823,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
