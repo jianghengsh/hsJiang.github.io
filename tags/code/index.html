@@ -346,23 +346,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/20190902-Java-集合类-HashMap/" >
+        <a class="abstract-title" href = "/2019/09/05/20190905-Java-书-java核心卷I/" >
             
-                <span>HashMap的学习</span>
+                <span>Java核心技术I</span>
         </a>
         <div class="abstract-content">
-            阅读了HashMap源码，包括Java7和Java8两个版本的。首先Java7版本是增加结点是头插，在多线程的情况下可能会出现死循环，Java8版本把初始化和resize放在一起做，并且resize后赋值到新数组会更快，关于红黑树的部分还木有看，回头要补上。概括的说，HashMap 是一个关联数组、哈希表，它是线程不安全的，允许key为null,value为null。遍历时无序。其底层数据结构是数组称之为哈希桶，每个桶里面放的是链表，链表中的每个节点，就是哈希表中的每个元素。在JDK8中，当链表长度达到8，会转化成红黑树，以提升它的查询、插入效率，它实现了Map&lt;K,V&gt;, ...
+            Java核心技术I什么是JVM、Java编译器和Java解释器 
+不要编写返回引用可变对象的访问器方法。 clone()
+java 子类有没有继承父类的私有属性和私有方法呢? Java官方文档的解释：子类不能继承父类的私有属性，但是如果子类中公有的方法影响到了父类私有属性，那么私有属性是能够被子类使用的。
+final域必须被初始化啊static域属于类不属于对象,所以new的对象共用一个方法参数 三种情况  P118System.out.println原理 public final static PrintStream out = null; 
+Java静态绑定与动态绑定
+抽象类：
+
+抽...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "code">code</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Code">Code</a>
     
 </div>
             
@@ -518,8 +527,6 @@
     
     
     
-    
-    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 6
@@ -543,12 +550,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
         </li>
     
     
@@ -573,15 +580,15 @@
     
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
-        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
-    
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
-        <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
-    
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
+    
+        <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
     
         <span class="sidebar-tag-name" data-tags="Test"><span class="iconfont-archer">&#xe606;</span>Test</span>
     
@@ -661,5 +668,8 @@ jsonContent:
      
     </body>
 </html>
+
+
+>
 
 
