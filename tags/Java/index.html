@@ -346,58 +346,32 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/14/为什么要重写equals-和hashcode-方法/" >
+        <a class="abstract-title" href = "/2019/09/05/20190905-Java-书-java核心卷I/" >
             
-                <span>为什么要重写equals()和hashcode()方法</span>
+                <span>Java核心技术I</span>
         </a>
         <div class="abstract-content">
-            为什么重写equals()方法必须重写hashcode()方法?说起equals方法，我们都知道是超类Object中的一个基本方法，用于检测一个对象是否与另外一个对象相等。而在Object类中这个方法实际上是判断两个对象是否具有相同的引用，如果有，它们就一定相等。其源码如下：
-1public boolean equals(Object obj) &#123;   return (this == obj);     &#125;
+            Java核心技术I什么是JVM、Java编译器和Java解释器 
+不要编写返回引用可变对象的访问器方法。 clone()
+java 子类有没有继承父类的私有属性和私有方法呢? Java官方文档的解释：子类不能继承父类的私有属性，但是如果子类中公有的方法影响到了父类私有属性，那么私有属性是能够被子类使用的。
+final域必须被初始化啊static域属于类不属于对象,所以new的对象共用一个方法参数 三种情况  P118System.out.println原理 public final static PrintStream out = null; 
+Java静态绑定与动态绑定
+抽象类：
 
-String重写了equals()方法:
-123456789101112131415161718192021public boolean equals(Obje...
+抽...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/14</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Java">Java</a>
     
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/14/20190914-Java-接口字段只能是staticfinal/" >
-            
-                <span>xx</span>
-        </a>
-        <div class="abstract-content">
-            为什么接口的字段只能是    static    和    final    类型的接口就是提供一种统一的”协议”，而接口中的属性也属于“协议”中的成员。它们是公共的，静态的，最终的常量。相当于全局常量。抽象类是不“完全”的类，相当于是接口和具体类的一个中间层。即满足接口的抽象，也满足具体的实现。
-接口中为什么不可以定义变量?
-如果接口可以定义变量，但是接口中的方法又都是抽象的，在接口中无法通过行为来修改属性。有的人会说了，没有关系，可以通过实现接口的对象的行为来修改接口中的属性。这当然没有问题，但是考虑这样的情况。如果接口 A 中有一个public 访问权限的静态变量 a。按照 Jav...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/14</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "java">java</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Code">Code</a>
     
 </div>
             
@@ -602,6 +576,8 @@ String重写了equals()方法:
     
     
     
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 9
@@ -625,7 +601,7 @@ String重写了equals()方法:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2019/09/14/20190914-Java-接口字段只能是staticfinal/" >xx</a>
+            <span class="archive-post-date">09/14</span><a class="archive-post-title" href= "/2019/09/14/20190914-Java-接口字段只能是staticfinal/" >为什么接口的字段只能是	static	和	final	类型的</a>
         </li>
     
     
@@ -640,12 +616,12 @@ String重写了equals()方法:
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
         </li>
     
     
@@ -670,13 +646,9 @@ String重写了equals()方法:
     
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
-        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
-    
         <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
-        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
-    
-        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
+        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
     
         <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
     
@@ -685,6 +657,10 @@ String重写了equals()方法:
         <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
     
         <span class="sidebar-tag-name" data-tags="Test"><span class="iconfont-archer">&#xe606;</span>Test</span>
+    
+        <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
+    
+        <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
@@ -722,6 +698,51 @@ jsonContent:
         <span class="sidebar-category-name" data-categories="编程"><span class="iconfont-archer">&#xe60a;</span>编程</span>
     
         <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
+    
+        <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
+    
+        <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="健身"><span class="iconfont-archer">&#xe60a;</span>健身</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Hengshun Jiang"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    </body>
+</html>
+
+
+class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
     
         <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
     
