@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">79</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">475</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -401,9 +401,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="Ϊʲo�ӿڵ��ֶ�ֻ����-static-��-final-���͵�"><a href="#Ϊʲo�ӿڵ��ֶ�ֻ����-static-��-final-���͵�" class="headerlink" title="Ϊʲô�ӿڵ��ֶ�ֻ����    static    ��    final    ���͵�"></a>Ϊʲô�ӿڵ��ֶ�ֻ����    static    ��    final    ���͵�</h1><p>�ӿھ����ṩһ��ͳһ�ġ�Э�顱�����ӿ��е�����Ҳ���ڡ�Э�顱�еĳ�Ա�������ǹ����ģ���̬�ģ����յĳ������൱��ȫ�ֳ������������ǲ�����ȫ�����࣬�൱���ǽӿں;������һ���м�㡣������ӿڵĳ���Ҳ��������ʵ�֡�</p>
-<h2 id="�ӿ���Ϊʲo�����Զ������"><a href="#�ӿ���Ϊʲo�����Զ������" class="headerlink" title="�ӿ���Ϊʲô�����Զ������?"></a>�ӿ���Ϊʲô�����Զ������?</h2><blockquote>
-<p>����ӿڿ��Զ�����������ǽӿ��еķ����ֶ��ǳ���ģ��ڽӿ����޷�ͨ����Ϊ���޸����ԡ��е��˻�˵�ˣ�û�й�ϵ������ͨ��ʵ�ֽӿڵĶ������Ϊ���޸Ľӿ��е����ԡ��⵱Ȼû�����⣬���ǿ��������������<code>����ӿ� A ����һ��public ����Ȩ�޵ľ�̬���� a������ Java �����壬���ǿ��Բ�ͨ��ʵ�ֽӿڵĶ��������ʱ��� a��ͨ�� A.a = xxx; �Ϳ��Ըı�ӿ��еı��� a ��ֵ�ˡ�������������ǿ����������ģ���ôʵ�ֽӿ� A �����ж���Ҳ�����Զ�ӵ����һ�ı��� a ��ֵ�ˣ�Ҳ����˵һ���ط��ı��� a��������Щ������ a ��ֵҲ�����ű��ˡ�</code>��ͳ�������ʲô�����أ���ô���ֽӿڸ��ߵĳ��󼶱��أ���ô���ֽӿ��ṩ��ͳһ��Э���أ��ǻ�Ҫ�ӿ����ֳ�������ʲô�أ����Խӿ��в��ܳ��ֱ���������б������ͺͽӿ��ṩ��ͳһ�ĳ�������˼���ǵִ��ġ����Խӿ��е����Ա�Ȼ�ǳ�����ֻ�ܶ����ܸģ���������Ϊʵ�ֽӿڵĶ����ṩһ��ͳһ�����ԡ�</p>
+        <h1 id="为什么接口的字段只能是-static-和-final-类型的"><a href="#为什么接口的字段只能是-static-和-final-类型的" class="headerlink" title="为什么接口的字段只能是    static    和    final    类型的"></a>为什么接口的字段只能是    static    和    final    类型的</h1><p>接口就是提供一种统一的”协议”，而接口中的属性也属于“协议”中的成员。它们是公共的，静态的，最终的常量。相当于全局常量。抽象类是不“完全”的类，相当于是接口和具体类的一个中间层。即满足接口的抽象，也满足具体的实现。</p>
+<h2 id="接口中为什么不可以定义变量"><a href="#接口中为什么不可以定义变量" class="headerlink" title="接口中为什么不可以定义变量?"></a>接口中为什么不可以定义变量?</h2><blockquote>
+<p>如果接口可以定义变量，但是接口中的方法又都是抽象的，在接口中无法通过行为来修改属性。有的人会说了，没有关系，可以通过实现接口的对象的行为来修改接口中的属性。这当然没有问题，但是考虑这样的情况。<code>如果接口 A 中有一个public 访问权限的静态变量 a。按照 Java 的语义，我们可以不通过实现接口的对象来访问变量 a，通过 A.a = xxx; 就可以改变接口中的变量 a 的值了。正如抽象类中是可以这样做的，那么实现接口 A 的所有对象也都会自动拥有这一改变后的 a 的值了，也就是说一个地方改变了 a，所有这些对象中 a 的值也都跟着变了。</code>这和抽象类有什么区别呢，怎么体现接口更高的抽象级别呢，怎么体现接口提供的统一的协议呢，那还要接口这种抽象来做什么呢？所以接口中不能出现变量，如果有变量，就和接口提供的统一的抽象这种思想是抵触的。所以接口中的属性必然是常量，只能读不能改，这样才能为实现接口的对象提供一个统一的属性。</p>
 </blockquote>
 
     </article>
@@ -542,7 +542,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ϊʲo�ӿڵ��ֶ�ֻ����-static-��-final-���͵�"><span class="toc-number">1.</span> <span class="toc-text">Ϊʲô�ӿڵ��ֶ�ֻ����    static    ��    final    ���͵�</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#�ӿ���Ϊʲo�����Զ������"><span class="toc-number">1.1.</span> <span class="toc-text">�ӿ���Ϊʲô�����Զ������?</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么接口的字段只能是-static-和-final-类型的"><span class="toc-number">1.</span> <span class="toc-text">为什么接口的字段只能是    static    和    final    类型的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#接口中为什么不可以定义变量"><span class="toc-number">1.1.</span> <span class="toc-text">接口中为什么不可以定义变量?</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -555,6 +555,12 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
     
     
     
@@ -690,17 +696,17 @@ top:50vh;
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190902-Java-集合类-HashMap/" >HashMap的学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
         </li>
     
     
@@ -718,11 +724,11 @@ top:50vh;
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
-    
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
@@ -730,9 +736,9 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
-        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
-    
         <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
+    
+        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
     
         <span class="sidebar-tag-name" data-tags="Test"><span class="iconfont-archer">&#xe606;</span>Test</span>
     
@@ -769,15 +775,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
-    
         <span class="sidebar-category-name" data-categories="编程"><span class="iconfont-archer">&#xe60a;</span>编程</span>
     
-        <span class="sidebar-category-name" data-categories="���"><span class="iconfont-archer">&#xe60a;</span>���</span>
-    
-        <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
+        <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
     
         <span class="sidebar-category-name" data-categories="健身"><span class="iconfont-archer">&#xe60a;</span>健身</span>
+    
+        <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     

@@ -384,9 +384,9 @@ String重写了equals()方法:
                 <span>xx</span>
         </a>
         <div class="abstract-content">
-            Ϊʲô�ӿڵ��ֶ�ֻ����    static    ��    final    ���͵��ӿھ����ṩһ��ͳһ�ġ�Э�顱�����ӿ��е�����Ҳ���ڡ�Э�顱�еĳ�Ա�������ǹ����ģ���̬�ģ����յĳ������൱��ȫ�ֳ������������ǲ�����ȫ�����࣬�൱���ǽӿں;������һ���м�㡣������ӿڵĳ���Ҳ��������ʵ�֡�
-�ӿ���Ϊʲô�����Զ������?
-����ӿڿ��Զ�����������ǽӿ��еķ����ֶ��ǳ���ģ��ڽӿ����޷�ͨ����Ϊ���޸����ԡ��е��˻...
+            为什么接口的字段只能是    static    和    final    类型的接口就是提供一种统一的”协议”，而接口中的属性也属于“协议”中的成员。它们是公共的，静态的，最终的常量。相当于全局常量。抽象类是不“完全”的类，相当于是接口和具体类的一个中间层。即满足接口的抽象，也满足具体的实现。
+接口中为什么不可以定义变量?
+如果接口可以定义变量，但是接口中的方法又都是抽象的，在接口中无法通过行为来修改属性。有的人会说了，没有关系，可以通过实现接口的对象的行为来修改接口中的属性。这当然没有问题，但是考虑这样的情况。如果接口 A 中有一个public 访问权限的静态变量 a。按照 Jav...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -478,35 +478,6 @@ Java静态绑定与动态绑定
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >
-            
-                <span>蚂蚁金服面试题(无答案)</span>
-        </a>
-        <div class="abstract-content">
-            蚂蚁金服面试题总结（无答案）1、Java事件机制包括哪三个部分？分别介绍。2、为什么要使用线程池？3、线程池有什么用？4、说说几种常见的线程池及使用场景。5、线程池都有哪几种工作队列？6、怎么理解无界队列和有届队列？7、线程池中的几种重要的参数及流程说明。8、什么是反射机制？9、说说反射机制的作用。10、反射机制会不会有性能问题？11、你怎么理解http协议？12、说说http协议的工作流程。13、http有哪些请求提交方式？14、http中的200，302,403,404,500,503都代表什么状态？15、http get和post有什么区别？16、你怎么理解cookie和sessi...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "面试题">面试题</a>
-    
-</div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
         <a class="abstract-title" href = "/2019/09/02/20190902-Java-集合类-HashMap/" >
             
                 <span>HashMap的学习</span>
@@ -562,6 +533,35 @@ innodb 中的主键是聚簇索引，会把相邻主键的数据安放在相邻�
             <div class= abstract-tags >
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "数据库">数据库</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >
+            
+                <span>蚂蚁金服面试题(无答案)</span>
+        </a>
+        <div class="abstract-content">
+            蚂蚁金服面试题总结（无答案）1、Java事件机制包括哪三个部分？分别介绍。2、为什么要使用线程池？3、线程池有什么用？4、说说几种常见的线程池及使用场景。5、线程池都有哪几种工作队列？6、怎么理解无界队列和有届队列？7、线程池中的几种重要的参数及流程说明。8、什么是反射机制？9、说说反射机制的作用。10、反射机制会不会有性能问题？11、你怎么理解http协议？12、说说http协议的工作流程。13、http有哪些请求提交方式？14、http中的200，302,403,404,500,503都代表什么状态？15、http get和post有什么区别？16、你怎么理解cookie和sessi...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/02</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "面试题">面试题</a>
     
 </div>
             
@@ -826,6 +826,12 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
     
     
     
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
         Total : 9
@@ -864,17 +870,17 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190902-Java-集合类-HashMap/" >HashMap的学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
         </li>
     
     
@@ -892,11 +898,11 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
-        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
-    
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
         <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
+    
+        <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
     
         <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
     
@@ -904,9 +910,9 @@ Java modCount的作用  Fail-Fast机制比如java.util.HashMap 不是线程安�
     
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
-        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
-    
         <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
+    
+        <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
     
         <span class="sidebar-tag-name" data-tags="Test"><span class="iconfont-archer">&#xe606;</span>Test</span>
     
@@ -943,15 +949,13 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
-    
         <span class="sidebar-category-name" data-categories="编程"><span class="iconfont-archer">&#xe60a;</span>编程</span>
     
-        <span class="sidebar-category-name" data-categories="���"><span class="iconfont-archer">&#xe60a;</span>���</span>
-    
-        <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
+        <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
     
         <span class="sidebar-category-name" data-categories="健身"><span class="iconfont-archer">&#xe60a;</span>健身</span>
+    
+        <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
     
