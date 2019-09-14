@@ -272,7 +272,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">671</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">691</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -416,7 +416,7 @@ height:50vh;
 </blockquote>
 <br>
 
-<h4 id="下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗"><a href="#下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗" class="headerlink" title="下边代码中,p1和p2的hashcode相同,但是打印结果为true,false,&quot;no boundaries&quot;,null,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?"></a>下边代码中,p1和p2的hashcode相同,但是打印结果为<code>true</code>,<code>false</code>,<code>&quot;no boundaries&quot;</code>,<code>null</code>,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String p1=<span class="string">"儿女"</span>;</span><br><span class="line">String p2 = <span class="string">"农丰"</span>;</span><br><span class="line">HashMap&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(p1,<span class="string">"no boundaries"</span>);</span><br><span class="line">System.out.println(<span class="string">"p1.hashCode()==p2.hashCode()"</span>+(p1.hashCode()==p2.hashCode()));</span><br><span class="line">System.out.println(<span class="string">"p1.equals(p2)"</span>+p1.equals(p2));</span><br><span class="line">System.out.println(<span class="string">"map.get(p1)"</span>+map.get(p1));</span><br><span class="line">System.out.println(<span class="string">"map.get(p2)"</span>+map.get(p2));</span><br></pre></td></tr></table></figure>
+<h4 id="下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗"><a href="#下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗" class="headerlink" title="下边代码中,p1和p2的hashcode相同,但是打印结果为true,false,&quot;no boundaries&quot;,null,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?"></a>下边代码中,p1和p2的hashcode相同,但是打印结果为<code>true</code>,<code>false</code>,<code>&quot;no boundaries&quot;</code>,<code>null</code>,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?</h4><h4 id="计算索引是根据hashcode来算的，但是equals同样要用到的。"><a href="#计算索引是根据hashcode来算的，但是equals同样要用到的。" class="headerlink" title="计算索引是根据hashcode来算的，但是equals同样要用到的。"></a>计算索引是根据hashcode来算的，但是equals同样要用到的。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String p1=<span class="string">"儿女"</span>;</span><br><span class="line">String p2 = <span class="string">"农丰"</span>;</span><br><span class="line">HashMap&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">map.put(p1,<span class="string">"no boundaries"</span>);</span><br><span class="line">System.out.println(<span class="string">"p1.hashCode()==p2.hashCode()"</span>+(p1.hashCode()==p2.hashCode()));</span><br><span class="line">System.out.println(<span class="string">"p1.equals(p2)"</span>+p1.equals(p2));</span><br><span class="line">System.out.println(<span class="string">"map.get(p1)"</span>+map.get(p1));</span><br><span class="line">System.out.println(<span class="string">"map.get(p2)"</span>+map.get(p2));</span><br></pre></td></tr></table></figure>
 
 <h4 id="如图-hashmap的get方法依赖equals方法-上边p1-equals-p2-是false-所以get到的是null啦。所以你想通过p2来get到p1的value-只能重写equals方法-但是问题又来了-String是final类-所以你只能定义别的类了。"><a href="#如图-hashmap的get方法依赖equals方法-上边p1-equals-p2-是false-所以get到的是null啦。所以你想通过p2来get到p1的value-只能重写equals方法-但是问题又来了-String是final类-所以你只能定义别的类了。" class="headerlink" title="如图,hashmap的get方法依赖equals方法,上边p1.equals(p2)是false,所以get到的是null啦。所以你想通过p2来get到p1的value,只能重写equals方法,但是问题又来了,String是final类,所以你只能定义别的类了。"></a>如图,hashmap的get方法依赖equals方法,上边p1.equals(p2)是false,所以get到的是null啦。所以你想通过p2来get到p1的value,只能重写equals方法,但是问题又来了,String是final类,所以你只能定义别的类了。</h4><p><img src="/images/hashmap%E7%9A%84get%E6%96%B9%E6%B3%95.png" alt></p>
 <h4 id="先定义一个类pp，然后重写hashcode-和equals-方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals-方法的返回值跟hashcode-的返回值一致。"><a href="#先定义一个类pp，然后重写hashcode-和equals-方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals-方法的返回值跟hashcode-的返回值一致。" class="headerlink" title="先定义一个类pp，然后重写hashcode()和equals()方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals()方法的返回值跟hashcode()的返回值一致。"></a>先定义一个类pp，然后重写hashcode()和equals()方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals()方法的返回值跟hashcode()的返回值一致。</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">pp</span> </span>&#123;</span><br><span class="line">    String s;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">pp</span><span class="params">(String s)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.s = s;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.hashCode()==obj.hashCode();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> s.hashCode();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -556,7 +556,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么重写equals-方法必须重写hashcode-方法"><span class="toc-number">1.</span> <span class="toc-text">为什么重写equals()方法必须重写hashcode()方法?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">下边代码中,p1和p2的hashcode相同,但是打印结果为true,false,&quot;no boundaries&quot;,null,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如图-hashmap的get方法依赖equals方法-上边p1-equals-p2-是false-所以get到的是null啦。所以你想通过p2来get到p1的value-只能重写equals方法-但是问题又来了-String是final类-所以你只能定义别的类了。"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">如图,hashmap的get方法依赖equals方法,上边p1.equals(p2)是false,所以get到的是null啦。所以你想通过p2来get到p1的value,只能重写equals方法,但是问题又来了,String是final类,所以你只能定义别的类了。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#先定义一个类pp，然后重写hashcode-和equals-方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals-方法的返回值跟hashcode-的返回值一致。"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">先定义一个类pp，然后重写hashcode()和equals()方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals()方法的返回值跟hashcode()的返回值一致。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这样的话，p1和p2不光hashcode-相等，equals-也相等了，所以执行map-get-p2-得到的就是p1的value了。打印结果"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">这样的话，p1和p2不光hashcode()相等，equals()也相等了，所以执行map.get(p2)得到的就是p1的value了。打印结果</span></a></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么重写equals-方法必须重写hashcode-方法"><span class="toc-number">1.</span> <span class="toc-text">为什么重写equals()方法必须重写hashcode()方法?</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下边代码中-p1和p2的hashcode相同-但是打印结果为true-false-quot-no-boundaries-quot-null-也就是通过p2得不到p1的value-为啥呢-不是说Hashmap散列的时候看hashcode吗"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">下边代码中,p1和p2的hashcode相同,但是打印结果为true,false,&quot;no boundaries&quot;,null,也就是通过p2得不到p1的value,为啥呢?不是说Hashmap散列的时候看hashcode吗?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算索引是根据hashcode来算的，但是equals同样要用到的。"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">计算索引是根据hashcode来算的，但是equals同样要用到的。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如图-hashmap的get方法依赖equals方法-上边p1-equals-p2-是false-所以get到的是null啦。所以你想通过p2来get到p1的value-只能重写equals方法-但是问题又来了-String是final类-所以你只能定义别的类了。"><span class="toc-number">1.0.0.3.</span> <span class="toc-text">如图,hashmap的get方法依赖equals方法,上边p1.equals(p2)是false,所以get到的是null啦。所以你想通过p2来get到p1的value,只能重写equals方法,但是问题又来了,String是final类,所以你只能定义别的类了。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#先定义一个类pp，然后重写hashcode-和equals-方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals-方法的返回值跟hashcode-的返回值一致。"><span class="toc-number">1.0.0.4.</span> <span class="toc-text">先定义一个类pp，然后重写hashcode()和equals()方法，这里hashcode其实就是他们值的hashcode，也就是String里的hashcode，所以”儿女”和”农丰”的hashcode还是一样的，然后我让equals()方法的返回值跟hashcode()的返回值一致。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#这样的话，p1和p2不光hashcode-相等，equals-也相等了，所以执行map-get-p2-得到的就是p1的value了。打印结果"><span class="toc-number">1.0.0.5.</span> <span class="toc-text">这样的话，p1和p2不光hashcode()相等，equals()也相等了，所以执行map.get(p2)得到的就是p1的value了。打印结果</span></a></li></ol></li></ol></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -569,8 +569,6 @@ top:50vh;
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-panel-archives">
     <!-- 在ejs中将archive按照时间排序 -->
-    
-    
     
     
     
@@ -710,12 +708,12 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190904-数据库-面试题/" >数据库面试题</a>
+            <span class="archive-post-date">09/02</span><a class="archive-post-title" href= "/2019/09/02/20190903-面试-蚂蚁金服-无答案/" >蚂蚁金服面试题(无答案)</a>
         </li>
     
     
@@ -740,19 +738,19 @@ top:50vh;
     
         <span class="sidebar-tag-name" data-tags="code"><span class="iconfont-archer">&#xe606;</span>code</span>
     
-        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
-    
         <span class="sidebar-tag-name" data-tags="面试题"><span class="iconfont-archer">&#xe606;</span>面试题</span>
     
-        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+        <span class="sidebar-tag-name" data-tags="数据库"><span class="iconfont-archer">&#xe606;</span>数据库</span>
     
         <span class="sidebar-tag-name" data-tags="Java"><span class="iconfont-archer">&#xe606;</span>Java</span>
     
         <span class="sidebar-tag-name" data-tags="Code"><span class="iconfont-archer">&#xe606;</span>Code</span>
     
-        <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
-    
         <span class="sidebar-tag-name" data-tags="life"><span class="iconfont-archer">&#xe606;</span>life</span>
+    
+        <span class="sidebar-tag-name" data-tags="java"><span class="iconfont-archer">&#xe606;</span>java</span>
+    
+        <span class="sidebar-tag-name" data-tags="Life"><span class="iconfont-archer">&#xe606;</span>Life</span>
     
         <span class="sidebar-tag-name" data-tags="Test"><span class="iconfont-archer">&#xe606;</span>Test</span>
     
@@ -793,11 +791,11 @@ jsonContent:
     
         <span class="sidebar-category-name" data-categories="校招"><span class="iconfont-archer">&#xe60a;</span>校招</span>
     
-        <span class="sidebar-category-name" data-categories="健身"><span class="iconfont-archer">&#xe60a;</span>健身</span>
-    
         <span class="sidebar-category-name" data-categories="其它"><span class="iconfont-archer">&#xe60a;</span>其它</span>
     
         <span class="sidebar-category-name" data-categories="随笔"><span class="iconfont-archer">&#xe60a;</span>随笔</span>
+    
+        <span class="sidebar-category-name" data-categories="健身"><span class="iconfont-archer">&#xe60a;</span>健身</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
